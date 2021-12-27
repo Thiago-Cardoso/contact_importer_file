@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-
   get 'contacts/index'
-  get 'contacts/import'
+  post 'contacts/import'
+  delete 'contacts/destroy'
   devise_for :users
+  root 'contacts#index'
 end
