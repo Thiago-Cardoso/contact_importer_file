@@ -4,8 +4,12 @@ class ContactsController < ApplicationController
   end
 
   def import
-    ImportDataService.new(params[:file], current_user).call
-    redirect_to contacts_index_path, notice: 'imported'
+    if !params[:file].nil?
+      ImportDataService.new(params[:file], current_user).call
+      redirect_to contacts_index_path, notice: 'imported'
+    else
+      redirect_to contacts_index_path, notice: 'put a file'
+    end
   end
 
   def destroy
