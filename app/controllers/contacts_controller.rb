@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
-  def index
-    @contacts = Contact.all
-  end
+  before_action :set_contact, only: [:index]
+
+  def index; end
 
   def import
     if !params[:file].nil?
@@ -15,5 +15,11 @@ class ContactsController < ApplicationController
   def destroy
     current_user.contacts.delete_all
     redirect_to contacts_index_path, notice: 'deleted all contacts'
+  end
+
+  private
+
+  def set_contact
+    @contacts = Contact.all
   end
 end
