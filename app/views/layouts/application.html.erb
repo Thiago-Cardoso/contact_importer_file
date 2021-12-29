@@ -4,12 +4,24 @@
     <title>ContactImporter</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <%= render 'shared/navbar' %>
+
   <body>
-    <%= yield %>
+    <%= render 'shared/navbar' %>
+    <main class="container">
+      <% if notice %>
+        <div id="flash">
+          <div class="alert alert-success" role="alert">
+            <%= flash[:notice] %>
+          </div>
+        </div>
+      <script>
+        setTimeout();
+      </script>
+      <% end -%>
+      <%= yield %>
+    </main>
   </body>
 </html>
