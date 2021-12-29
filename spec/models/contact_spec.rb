@@ -10,9 +10,6 @@ RSpec.describe Contact, type: :model do
   end
 
   context 'Validates fields' do
-    it 'name?' do
-      is_expected.to validate_presence_of(:name)
-    end
     it 'date_of_birth?' do
       is_expected.to validate_presence_of(:date_of_birth)
     end
