@@ -73,7 +73,13 @@ After copying the repository to your machine, go to the project's root site and:
 docker-compose build
 ```
 
-2.  Run the project
+2.  Create of Database
+
+```
+docker-compose run --rm app bundle exec rails db:create db:migrate
+```
+
+3.  Run the project
 
 ```
 docker-compose up - d
